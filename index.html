@@ -1,0 +1,925 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026.06.13 宏恩牧區團隊建造 - 婚姻的藝術 互動手冊</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                            950: '#4c0519',
+                        },
+                        champagne: {
+                            50: '#fdfbf7',
+                            100: '#fbf7ed',
+                            200: '#f4ecd4',
+                            300: '#eddcb3',
+                            400: '#e0c58a',
+                            500: '#cca45b',
+                            600: '#ba9045',
+                            700: '#9c7332',
+                            800: '#7c5a27',
+                            900: '#533b19',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+        body {
+            background-color: #fdfafb;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 18px; /* 全域基礎字體調大 */
+        }
+        /* 美化滾動條 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 3px;
+        }
+        /* 漸變邊框特效 */
+        .premium-border {
+            position: relative;
+        }
+        .premium-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(to bottom right, #f43f5e, #cca45b);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased selection:bg-rose-200 relative pb-16">
+
+    <!-- 頂部奢華香檳玫瑰漸層 Banner -->
+    <header class="bg-gradient-to-br from-rose-950 via-rose-900 to-rose-850 text-white py-12 px-6 rounded-b-[3rem] shadow-2xl text-center relative overflow-hidden border-b-4 border-champagne-400">
+        <!-- 精緻裝飾背景 -->
+        <div class="absolute -top-16 -left-16 w-48 h-48 bg-rose-700/30 rounded-full filter blur-2xl"></div>
+        <div class="absolute -bottom-16 -right-16 w-56 h-56 bg-champagne-500/20 rounded-full filter blur-2xl"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+        
+        <div class="relative z-10 space-y-4">
+            <span class="inline-flex items-center gap-1 bg-champagne-500/20 border border-champagne-400/40 text-champagne-200 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-inner">
+                ✨ 2026.06.13 宏恩牧區團隊建造
+            </span>
+            <h1 class="text-4xl md:text-5xl font-black mt-2 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-white via-rose-50 to-champagne-200">
+                婚姻的藝術
+            </h1>
+            <p class="text-rose-100 text-sm font-bold tracking-widest">帶領：宏恩 & 小葳</p>
+            
+            <!-- 頂部動態時間/日期看板 -->
+            <div class="mt-6 flex justify-center items-center gap-3 text-sm text-rose-50 bg-black/30 py-3 px-6 rounded-full max-w-sm mx-auto backdrop-blur-md border border-white/5 shadow-inner">
+                <span class="flex items-center gap-1.5 text-champagne-300">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span id="date-status-label">大會日期 6/13</span>
+                </span>
+                <span class="w-px h-4 bg-rose-700"></span>
+                <span id="current-time-display" class="font-bold tracking-wider font-mono">08:30:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main class="flex-grow max-w-md mx-auto w-full px-4 py-6 space-y-8">
+
+        <!-- 倒數計時/今日歡迎卡片 -->
+        <div id="welcome-countdown-card" class="bg-gradient-to-r from-rose-50 to-champagne-50 rounded-2xl p-5 shadow-sm border border-rose-100/60 flex items-center justify-between text-slate-800 transition-all duration-500">
+            <div class="space-y-1.5">
+                <span id="countdown-title" class="text-xs text-rose-700 font-extrabold tracking-wider block uppercase">大會倒數 COUNTDOWN</span>
+                <h3 id="countdown-days" class="text-base font-bold text-slate-800">載入倒數資訊中...</h3>
+            </div>
+            <div class="bg-white/80 p-3 rounded-full shadow-xs text-rose-600 border border-rose-100 shrink-0 ml-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+        </div>
+
+        <!-- 當前進行節目動態看板 -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-rose-100/60 flex items-center justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2.5 h-full bg-rose-600"></div>
+            <div class="space-y-1.5 pl-3">
+                <span class="text-xs text-rose-600 font-extrabold tracking-widest block uppercase">目前大會節目 ONGOING SESSION</span>
+                <h2 id="live-session-title" class="text-lg font-bold text-slate-800">正在確認活動進度...</h2>
+                <p id="live-session-time" class="text-sm text-slate-500 font-mono">--:-- - --:--</p>
+            </div>
+            <div class="bg-rose-50 p-3.5 rounded-full text-rose-600 border border-rose-100/50 shrink-0 ml-3" id="live-icon">
+                <svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            </div>
+        </div>
+
+        <!-- 專屬互動破冰小工具（一分鐘自我介紹） -->
+        <section id="icebreaker-widget" class="bg-gradient-to-br from-champagne-50 via-amber-50/40 to-rose-50/30 rounded-3xl p-6 shadow-md border border-champagne-200/60 space-y-5 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-24 h-24 bg-champagne-200/20 rounded-full"></div>
+            <div class="flex justify-between items-start relative z-10">
+                <div>
+                    <span class="bg-champagne-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">大會互動破冰</span>
+                    <h3 class="font-extrabold text-xl text-rose-950 mt-1.5 flex items-center gap-1.5">
+                        🤝 1 分鐘自我介紹
+                    </h3>
+                </div>
+                <span class="text-sm text-champagne-800 font-bold bg-white/90 px-3.5 py-1.5 rounded-full border border-champagne-200/80 shadow-xs shrink-0 ml-3">每人 60 秒</span>
+            </div>
+
+            <!-- 引導問題卡片 -->
+            <div class="bg-white/90 rounded-2xl p-5 border border-rose-100/60 shadow-sm space-y-4 relative z-10">
+                <p class="text-sm font-bold text-rose-800 border-b border-dashed border-rose-100 pb-2.5 flex items-center gap-1">
+                    <span>📢</span> 請在計時結束前分享完以下內容：
+                </p>
+                <div class="space-y-4 text-base text-slate-700">
+                    <div class="flex items-start gap-3">
+                        <span class="bg-rose-100 text-rose-700 text-sm font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</span>
+                        <div>
+                            <p class="font-bold text-slate-900 text-[17px]">你的名字</p>
+                            <p class="text-sm text-slate-500">怎麼稱呼你最親切、好記？</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="bg-rose-100 text-rose-700 text-sm font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</span>
+                        <div>
+                            <p class="font-bold text-slate-900 text-[17px]">目前身份狀況 或 結婚年數</p>
+                            <p class="text-sm text-slate-500">例如：穩定交往、剛新婚、已結婚 X 年</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="bg-rose-100 text-rose-700 text-sm font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</span>
+                        <div>
+                            <p class="font-bold text-slate-900 text-[17px]">對今天課程的期待</p>
+                            <p class="text-sm text-slate-500">今天最想重新學習或得著什麼？</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 計時器主體 -->
+            <div class="bg-slate-900 rounded-2xl p-5 text-white flex items-center justify-between shadow-lg relative z-10 border border-slate-800">
+                <div class="space-y-1">
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">發言計時器 TIMER</p>
+                    <div class="flex items-baseline gap-1">
+                        <span id="timer-display" class="text-5xl font-black tracking-mono text-champagne-400 transition-all duration-300">60</span>
+                        <span class="text-sm text-slate-400">秒</span>
+                    </div>
+                </div>
+                <!-- 控制鈕 -->
+                <div class="flex items-center gap-3">
+                    <button id="timer-toggle-btn" onclick="toggleTimer()" class="bg-rose-600 hover:bg-rose-500 text-white p-4 rounded-full transition active:scale-95 shadow-md flex items-center justify-center">
+                        <svg id="timer-play-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                        <svg id="timer-pause-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+                    </button>
+                    <button onclick="resetTimer()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 p-4 rounded-full transition active:scale-95 border border-slate-700 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <!-- 底部視覺化計時進度條 -->
+            <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden relative z-10">
+                <div id="timer-progress" class="bg-gradient-to-r from-champagne-400 to-rose-500 h-full w-full transition-all duration-1000 ease-linear"></div>
+            </div>
+        </section>
+
+        <!-- 節目時間表與討論引導 -->
+        <section class="space-y-5">
+            <div class="flex justify-between items-center">
+                <h3 class="font-extrabold text-xl text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-rose-600 rounded-full"></span>
+                    大會節目表與小組題目
+                </h3>
+                <button id="sim-btn" class="text-xs text-rose-800 bg-rose-100 hover:bg-rose-200 font-bold px-4 py-2 rounded-full transition active:scale-95 shadow-xs">
+                    模擬活動時間
+                </button>
+            </div>
+
+            <!-- 流程清單 (Timeline with Line connectors) -->
+            <div class="relative pl-4 border-l-2 border-dashed border-rose-200/80 ml-2.5 space-y-6" id="timeline-container">
+                <!-- 由 JavaScript 動態生成流程 -->
+            </div>
+        </section>
+
+        <!-- 個人隨堂筆記系統 -->
+        <section class="bg-white rounded-3xl p-6 shadow-md border border-rose-100/50 relative space-y-5">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                <h3 class="font-extrabold text-xl text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full"></span>
+                    我的隨心札記
+                </h3>
+                <button onclick="exportNotes()" class="text-sm bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 px-4 py-2.5 rounded-full flex items-center justify-center gap-1.5 transition active:scale-95 font-bold shadow-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    儲存與匯出筆記
+                </button>
+            </div>
+            
+            <!-- ⚠️ 特色高亮防遺失提示區 -->
+            <div class="bg-amber-50/70 border border-dashed border-amber-300 rounded-2xl p-4 text-sm text-amber-900 leading-relaxed">
+                <span class="font-bold text-amber-700 block mb-1.5 text-base">⚠️ 重要安全備份說明：</span>
+                隨堂筆記是儲存在「個人手機的瀏覽器記憶體」中。活動結束後，務必點擊右上角的 <strong class="text-amber-800">「儲存與匯出筆記」</strong> 按鈕，下載成 <code class="bg-amber-100 px-1 rounded text-amber-900 font-mono font-bold">.txt</code> 檔案，以防清理瀏覽器快取或 LINE 關閉時資料意外遺失。
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">選擇目前紀錄的影片/單元：</label>
+                    <select id="note-selector" onchange="switchNoteCategory()" class="w-full text-base bg-slate-50 border border-slate-200 rounded-xl px-3 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium">
+                        <option value="intro">開場與綜合心得筆記</option>
+                        <option value="video1">影片 1：愛之迸發（上帝的目的與計畫）</option>
+                        <option value="video2">影片 2：愛之褪色（克服孤立）</option>
+                        <option value="video3">影片 3：愛之中斷（溝通與衝突）</option>
+                        <option value="video4">影片 4：愛之舞動（善盡我們的責任）</option>
+                        <option value="dance">舞動人生心得與未來願景</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea id="note-textarea" oninput="saveCurrentNote()" placeholder="在此輸入您的收穫、感動或與配偶、組員分享時的亮點..." class="w-full h-44 text-base bg-slate-50 border border-slate-200 rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-amber-500 leading-relaxed" style="resize: none;"></textarea>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span id="save-status" class="font-medium text-emerald-600">✓ 筆記已保存至本地記憶體</span>
+                    <span id="char-count" class="font-mono">0 字</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 舞動人生大會舞專區 -->
+        <section id="dance-section" class="bg-gradient-to-br from-rose-950 to-rose-900 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden border border-rose-800 space-y-4">
+            <!-- 藝術裝飾背景 -->
+            <div class="absolute -right-12 -bottom-12 w-36 h-36 bg-white/5 rounded-full"></div>
+            <div class="absolute -left-12 -top-12 w-36 h-36 bg-champagne-400/10 rounded-full"></div>
+            
+            <h3 class="font-extrabold text-2xl mb-1 flex items-center gap-2 relative z-10">
+                💃 3:30 - 4:00 舞動人生大會舞
+            </h3>
+            <p class="text-sm text-rose-100 leading-relaxed relative z-10">活動尾聲，讓我們跟隨音樂一起擺動跳舞，為今天的婚姻藝術學習與同工團隊建造畫下最美好的句點！</p>
+            
+            <!-- 大會舞學習影片按鈕 -->
+            <div class="pt-2 relative z-10 text-center">
+                <a href="https://youtu.be/BV9fEYLpBbk?si=n6jS_lJwggexo77A" target="_blank" class="inline-flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-bold text-sm py-3.5 px-4 rounded-xl transition active:scale-95 shadow-md">
+                    <!-- YouTube SVG 圖示 -->
+                    <svg class="w-5 h-5 text-white fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    🎥 開啟大會舞學習影片 (YouTube)
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 💡 右下角常駐安全懸浮發光按鈕（打字字數大於 10 時浮現） -->
+    <div id="backup-toast-btn" onclick="triggerBackupAlert()" class="fixed bottom-4 right-4 z-40 bg-amber-500 text-white font-bold text-xs py-3 px-4 rounded-full shadow-2xl flex items-center gap-1.5 cursor-pointer border border-amber-400 animate-bounce transition-all duration-500 scale-0 opacity-0 text-[13px]">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+        </span>
+        ⚠️ 備份提醒
+    </div>
+
+    <!-- 自訂客製化提示視窗 Modal -->
+    <div id="custom-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden p-4 backdrop-blur-xs">
+        <div class="bg-white rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl animate-fade-in border border-rose-100">
+            <div class="p-6 text-center space-y-4">
+                <div class="w-14 h-14 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mx-auto border border-rose-100" id="modal-icon">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-xl font-black text-slate-800" id="modal-title">成功</h3>
+                <p class="text-base text-slate-500 leading-relaxed" id="modal-message">內容已載入！</p>
+                <button onclick="closeModal()" class="w-full bg-rose-800 hover:bg-rose-900 text-white font-bold text-base py-3 rounded-xl transition active:scale-95 shadow">
+                    好的，我知道了
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer class="bg-slate-950 text-slate-400 text-center py-8 px-6 mt-12 text-sm border-t border-slate-900 space-y-3">
+        <p class="font-semibold text-slate-300">© 2026.06.13 宏恩 & 小葳・版權所有</p>
+        <p class="text-slate-500 max-w-xs mx-auto leading-relaxed text-xs">「兩個人總比一個人好，因為二人勞碌同得美好的果效。若是跌倒，這人可以扶起他的同伴...」— 傳道書 4:9-10</p>
+    </footer>
+
+    <!-- JavaScript 邏輯 -->
+    <script>
+        // 大會活動數據
+        const schedule = [
+            { id: 'session0', title: '相見歡・大會報到', start: '08:30', end: '09:00', type: 'admin', icon: '📝', desc: '歡迎同工家人們抵達！請至接待處簽名報到，並領取教材。' },
+            { id: 'session1', title: '大會揭幕・敬拜熱身開場', start: '09:00', end: '09:00', type: 'admin', icon: '🎉', desc: '宏恩 & 小葳致詞帶領、敬拜讚美與團隊破冰（上方 1分鐘自我介紹小工具）。' },
+            { id: 'session2', title: '影片 1：愛之迸發（上帝的目的與計畫）', start: '09:00', end: '10:00', type: 'video', icon: '🎬', desc: '重新回到婚姻起點，看見神設立婚姻時完美的目的與祝福心意。', noteKey: 'video1' },
+            { id: 'session3', title: '第一階段・休息與小組討論', start: '10:00', end: '10:30', type: 'discussion', icon: '💬', questions: [
+                '1. 在剛才的影片中，哪一個觀點或見證最觸動你對自己婚姻（或未來婚姻）的想像？',
+                '2. 看完這一課之後，你覺得自己有什麼需要改變的地方？',
+                '3. 在步入婚姻多年（或預備婚姻）的路上，你覺得維持婚姻起初熱情的最大挑戰是什麼？',
+                '4. 分享一個在你們婚姻中，配偶曾做過讓你想起當初誓言的貼心舉動。'
+            ]},
+            { id: 'session4', title: '影片 2：愛之褪色（克服孤立）', start: '10:30', end: '11:30', type: 'video', icon: '🎬', desc: '檢視日常生活中無處不在的疏離挑戰，學習如何合一克服關係孤立。', noteKey: 'video2' },
+            { id: 'session5', title: '第二階段・休息與小組討論', start: '11:30', end: '12:00', type: 'discussion', icon: '💬', questions: [
+                '1. 一段關係中，你覺得「自私」會帶來什麼影響？',
+                '2. 面對意見衝突時，你們的相處比較偏向「各自築牆沉默」還是「急著要說個清楚」？',
+                '3. 耶穌說凡樹木看果子，就可以認出它來（路加六:44）。加拉太書五:19-23將「情慾的事」與「聖靈的果子」相互比較。請參考聖靈的果子，你覺得哪一種最能代表你現在的生命？你的配偶覺得哪一種最能代表你的生命？'
+            ]},
+            { id: 'session6', title: '溫馨午餐與同工彼此交通', start: '12:00', end: '13:00', type: 'lunch', icon: '🍱', desc: '享受精心準備的愛宴，在主裡輕鬆暢談分享。' },
+            { id: 'session7', title: '影片 3：愛之中斷（溝通與衝突）', start: '13:00', end: '14:00', type: 'video', icon: '🎬', desc: '深究溝通模式，學習在上帝的愛與真理中面對衝突、尋求饒恕。', noteKey: 'video3' },
+            { id: 'session8', title: '第三階段・休息與小組討論', start: '14:00', end: '14:30', type: 'discussion', icon: '💬', questions: [
+                '1. 從小到大，你的原生家庭是如何處理衝突？',
+                '2. 當衝突過後，你最希望配對方什麼樣的「非言語舉動」（例如擁抱、遞杯茶）向你傳達和好的訊息？',
+                '3. 「饒恕」不是假裝忘記。在你們的關係中，是否有某些累積的小摩擦，此時此刻需要帶到神的面前全然釋放、彼此和好？'
+            ]},
+            { id: 'session9', title: '影片 4：愛之舞動（善盡我們的責任）', start: '14:30', end: '15:30', type: 'video', icon: '🎬', desc: '共繪家庭藍圖，看見並承擔上帝對你們夫妻在牧區與家庭中的一生使命。', noteKey: 'video4' },
+            { id: 'session10', title: '舞動人生（大會舞大團圓）', start: '15:30', end: '16:00', type: 'dance', icon: '💃', desc: '今天活動的最高潮！全體同工在音樂中一起舞動歡慶，歡迎參考最下方的「大會舞影片」學習！' }
+        ];
+
+        // 舞動人生隨機挑戰庫
+        const challenges = [
+            { title: "👀 默契眼神之舞", desc: "夫妻兩人手牽著手，不發一語地面對面注視對方雙眼 30 秒，期間嘴角保持微笑，最後給對方一個溫暖的擁抱！" },
+            { title: "🪞 甜言蜜語鏡子舞", desc: "配偶先跳一個代表今天得著的趣味舞蹈動作，另一人像鏡子般模仿，之後雙手合抱大聲對彼此說：「有你，我的生命更完整！」" },
+            { title: "🤝 愛的接龍之舞", desc: "邀請左右兩對夫妻同工，四人輪流想一個舞蹈或感恩的招牌動作，下一位必須重複並加上自己的動作，全組協力完成！" },
+            { title: "❤️ 雙人靈犀愛心", desc: "配偶兩人用一隻手指、一個肩膀在空中一起畫出巨大的愛心，最後互相為對方的家庭與服事獻上簡短 30 秒的祝福禱告。" },
+            { title: "👏 生命節奏拍拍手", desc: "面對面拍擊雙掌，以「右掌、左掌、雙掌、大笑三聲」為循環完成三次，釋放同工團隊的熱情與喜樂！" }
+        ];
+
+        // 時間與模擬器控制
+        let isSimulated = false;
+        let simMinutesOffset = 0;
+        let simInterval = null;
+
+        // 破冰計時器狀態
+        let timerSeconds = 60;
+        let timerInterval = null;
+        let timerIsRunning = false;
+
+        // 筆記存儲對象
+        let localNotes = {
+            intro: "",
+            video1: "",
+            video2: "",
+            video3: "",
+            video4: "",
+            dance: ""
+        };
+
+        // 頁面載入初始化
+        window.onload = function() {
+            // 從本地載入筆記
+            const saved = localStorage.getItem('marriage_art_notes_v2');
+            if (saved) {
+                try {
+                    localNotes = JSON.parse(saved);
+                } catch(e) {
+                    console.error("載入筆記失敗", e);
+                }
+            }
+            
+            renderTimeline();
+            updateCurrentSession();
+            switchNoteCategory();
+            updateCountdownCard();
+            checkNotesWordCount(); // 初始化檢索是否有儲存內容
+            
+            // 每秒鐘刷新一次時間與進度
+            setInterval(() => {
+                updateCurrentSession();
+                if (!isSimulated) {
+                    updateCountdownCard();
+                }
+            }, 1000);
+
+            document.getElementById('sim-btn').addEventListener('click', toggleSimulation);
+
+            // ⚠️ 註冊瀏覽器關閉/整理前的警告攔截
+            window.addEventListener('beforeunload', function (e) {
+                // 如果總打字數大於 10 字，攔截關閉事件
+                if (getTotalNotesLength() > 10) {
+                    e.preventDefault();
+                    e.returnValue = '隨堂筆記是儲存在個人手機記憶體中。活動結束前，請務必點擊「儲存與匯出筆記」，以防清理快取時資料遺失。';
+                    return e.returnValue;
+                }
+            });
+        };
+
+        // 計算目前所有筆記本的總字數
+        function getTotalNotesLength() {
+            let total = 0;
+            for (let key in localNotes) {
+                if (localNotes[key]) {
+                    total += localNotes[key].trim().length;
+                }
+            }
+            return total;
+        }
+
+        // 當字數大於 10 時，在右下角自動浮現「⚠️ 備份提醒」按鈕
+        function checkNotesWordCount() {
+            const btn = document.getElementById('backup-toast-btn');
+            const total = getTotalNotesLength();
+            if (total > 10) {
+                btn.classList.remove('scale-0', 'opacity-0');
+                btn.classList.add('scale-100', 'opacity-100');
+            } else {
+                btn.classList.remove('scale-100', 'opacity-100');
+                btn.classList.add('scale-0', 'opacity-0');
+            }
+        }
+
+        // 手動觸發備份提示彈窗 (Pop-up)
+        function triggerBackupAlert() {
+            showModal(
+                '⚠️ 筆記防遺失重要提醒', 
+                '隨堂筆記是儲存在「個人手機的瀏覽器記憶體」中。活動結束後，務必點擊「儲存與匯出筆記」下載成 .txt 檔案，以防清理瀏覽器快取時資料遺失。', 
+                'info'
+            );
+        }
+
+        // 計算倒數卡片內容
+        function updateCountdownCard() {
+            const countdownTitle = document.getElementById('countdown-title');
+            const countdownDays = document.getElementById('countdown-days');
+            const card = document.getElementById('welcome-countdown-card');
+
+            let now = new Date();
+            if (isSimulated) {
+                now.setMinutes(now.getMinutes() + simMinutesOffset);
+            }
+
+            // 設定活動日期 2026年6月13日
+            const eventDate = new Date('2026-06-13T00:00:00');
+            
+            const isSameDay = (
+                now.getFullYear() === eventDate.getFullYear() &&
+                now.getMonth() === eventDate.getMonth() &&
+                now.getDate() === eventDate.getDate()
+            );
+
+            if (isSameDay) {
+                countdownTitle.innerText = "📣 TODAY IS THE DAY!";
+                countdownDays.innerHTML = `<span class="text-rose-600 font-extrabold text-[17px]">今天是 6/13 活動當天！</span> 歡迎來到團隊建造營會！`;
+                card.className = "bg-gradient-to-r from-rose-100 to-champagne-100 rounded-2xl p-5 shadow-md border border-rose-200 flex items-center justify-between text-slate-800 transition-all duration-500";
+            } else {
+                const diffTime = eventDate.getTime() - now.getTime();
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                if (diffDays > 0) {
+                    countdownTitle.innerText = "大會倒數 COUNTDOWN";
+                    countdownDays.innerHTML = `距離大會開始還有 <span class="text-rose-600 font-extrabold text-xl font-mono">${diffDays}</span> 天！期待與您相見`;
+                    card.className = "bg-gradient-to-r from-rose-50 to-champagne-50 rounded-2xl p-5 shadow-sm border border-rose-100/60 flex items-center justify-between text-slate-800 transition-all duration-500";
+                } else {
+                    countdownTitle.innerText = "活動圓滿落幕";
+                    countdownDays.innerHTML = `活動已於 <span class="text-slate-600 font-bold">2026.06.13</span> 順利結束！歡迎匯出保留珍貴筆記。`;
+                }
+            }
+        }
+
+        // 1分鐘自我介紹破冰計時器邏輯
+        function toggleTimer() {
+            const playIcon = document.getElementById('timer-play-icon');
+            const pauseIcon = document.getElementById('timer-pause-icon');
+            const toggleBtn = document.getElementById('timer-toggle-btn');
+
+            if (timerIsRunning) {
+                clearInterval(timerInterval);
+                timerIsRunning = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                toggleBtn.classList.remove('bg-amber-600');
+                toggleBtn.classList.add('bg-rose-600');
+            } else {
+                timerIsRunning = true;
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                toggleBtn.classList.remove('bg-rose-600');
+                toggleBtn.classList.add('bg-amber-600');
+
+                timerInterval = setInterval(() => {
+                    timerSeconds--;
+                    updateTimerUI();
+
+                    if (timerSeconds <= 0) {
+                        clearInterval(timerInterval);
+                        timerIsRunning = false;
+                        playIcon.classList.remove('hidden');
+                        pauseIcon.classList.add('hidden');
+                        toggleBtn.classList.remove('bg-amber-600');
+                        toggleBtn.classList.add('bg-rose-600');
+                        
+                        document.getElementById('timer-display').classList.add('animate-pulse', 'text-rose-500');
+                        showModal('⏰ 破冰時間到！', '恭喜您完成精彩的自我介紹！現在請將手機或發言棒流轉給下一位組員喔。', 'info');
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerIsRunning = false;
+            timerSeconds = 60;
+            
+            document.getElementById('timer-play-icon').classList.remove('hidden');
+            document.getElementById('timer-pause-icon').classList.add('hidden');
+            document.getElementById('timer-toggle-btn').className = "bg-rose-600 hover:bg-rose-500 text-white p-4 rounded-full transition active:scale-95 shadow-md flex items-center justify-center";
+            
+            const display = document.getElementById('timer-display');
+            display.classList.remove('animate-pulse', 'text-rose-500');
+            display.classList.add('text-champagne-400');
+            
+            updateTimerUI();
+        }
+
+        // 計時器介面字型保持大尺寸科技感
+        function updateTimerUI() {
+            const display = document.getElementById('timer-display');
+            display.innerText = timerSeconds;
+
+            if (timerSeconds <= 10 && timerSeconds > 0) {
+                display.className = "text-5xl font-black tracking-mono text-rose-500 animate-pulse-fast";
+            } else if (timerSeconds > 10) {
+                display.className = "text-5xl font-black tracking-mono text-champagne-400";
+            }
+
+            const percentage = (timerSeconds / 60) * 100;
+            const progressBar = document.getElementById('timer-progress');
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // 渲染節目流程 - 調整此處的字體大小
+        function renderTimeline() {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = '';
+
+            schedule.forEach((item) => {
+                // 在影片 3 (session7) 渲染前，動態插播「大會互動任務生成器」作為午間活力破冰卡片
+                if (item.id === 'session7') {
+                    const generatorCard = document.createElement('div');
+                    generatorCard.className = "relative transition-all duration-300";
+                    generatorCard.innerHTML = `
+                        <!-- 裝飾時間點標記 -->
+                        <div class="absolute -left-[20px] top-2 w-3.5 h-3.5 rounded-full bg-champagne-500 border-2 border-white shadow-xs"></div>
+                        <div class="p-6 bg-gradient-to-br from-rose-950 via-rose-900 to-rose-850 rounded-2xl text-white shadow-md relative overflow-hidden border border-rose-800 space-y-4">
+                            <!-- 藝術裝飾背景 -->
+                            <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-white/5 rounded-full"></div>
+                            <div class="absolute -left-10 -top-10 w-24 h-24 bg-champagne-400/10 rounded-full"></div>
+                            
+                            <div class="relative z-10 text-center space-y-4">
+                                <div class="space-y-1">
+                                    <span class="bg-champagne-500 text-rose-950 text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider">午間活力提神任務</span>
+                                    <h4 class="font-black text-base text-champagne-200">🎲 大會互動任務生成器</h4>
+                                    <p class="text-xs text-rose-200 leading-relaxed">下午影片 3 開始前，邀請夫妻同工抽取一項趣味任務，打破昏睡感！</p>
+                                </div>
+                                
+                                <div id="challenge-box" class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 min-h-[5.5rem] flex flex-col justify-center items-center">
+                                    <p class="text-base font-black text-champagne-100" id="challenge-title">準備好舞動生命了嗎？</p>
+                                    <p class="text-xs text-rose-200 mt-1" id="challenge-desc">點擊按鈕抽取一項雙人/小組熱身挑戰！</p>
+                                </div>
+                                
+                                <button onclick="getNewChallenge()" class="w-full bg-gradient-to-r from-champagne-400 to-champagne-300 text-rose-950 font-black text-sm py-3 px-5 rounded-xl shadow-md hover:from-champagne-300 hover:to-champagne-200 transition active:scale-95">
+                                    🎲 隨機抽取挑戰任務
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(generatorCard);
+                }
+
+                let innerContent = '';
+
+                if (item.type === 'discussion') {
+                    innerContent = `
+                        <!-- 裝飾時間點標記 -->
+                        <div class="absolute -left-[20px] top-2 w-3.5 h-3.5 rounded-full bg-rose-500 border-2 border-white shadow-xs"></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-xs border border-rose-100/60 hover:shadow-md transition">
+                            <div class="flex items-center gap-2 mb-2.5">
+                                <span class="text-2xl">${item.icon}</span>
+                                <span class="text-xs bg-rose-50 text-rose-800 font-bold px-3 py-1 rounded-full font-mono">${item.start} - ${item.end}</span>
+                            </div>
+                            <h4 class="font-black text-slate-800 text-[17px] mb-3">${item.title}</h4>
+                            <div class="space-y-3 bg-gradient-to-br from-rose-50/50 to-champagne-50/40 p-4 rounded-xl border border-rose-100/40">
+                                <p class="text-xs font-black text-rose-700 tracking-widest mb-1.5 flex items-center gap-1">
+                                    <span>💬</span> 小組分享與討論：
+                                </p>
+                                ${item.questions.map(q => `<p class="text-[15px] text-slate-700 leading-relaxed font-medium">${q}</p>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    innerContent = `
+                        <!-- 裝飾時間點標記 -->
+                        <div class="absolute -left-[20px] top-2 w-3.5 h-3.5 rounded-full bg-slate-400 border-2 border-white shadow-xs"></div>
+                        <div class="p-5 bg-white rounded-2xl shadow-xs border border-slate-100 hover:shadow-md transition flex gap-3">
+                            <div class="text-3xl mt-0.5 shrink-0">${item.icon}</div>
+                            <div class="space-y-2 w-full">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs bg-slate-100 text-slate-600 font-mono font-bold px-3 py-1 rounded-full">${item.start} - ${item.end}</span>
+                                    ${item.type === 'video' ? '<span class="text-[10px] bg-rose-100 text-rose-800 font-extrabold px-2 py-0.5 rounded-md">大會影片</span>' : ''}
+                                </div>
+                                <h4 class="font-black text-slate-800 text-[17px] leading-snug">${item.title}</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">${item.desc || ''}</p>
+                                
+                                <div class="flex flex-wrap gap-2 pt-1">
+                                    ${item.id === 'session1' ? `
+                                        <button onclick="document.getElementById('icebreaker-widget').scrollIntoView({ behavior: 'smooth' })" class="text-xs bg-champagne-100 hover:bg-champagne-200 text-champagne-900 font-extrabold px-3 py-2 rounded-full flex items-center gap-1 transition">
+                                            🤝 自我介紹計時器
+                                        </button>
+                                    ` : ''}
+                                    ${item.noteKey ? `
+                                        <button onclick="quickGoToNote('${item.noteKey}')" class="text-xs bg-rose-50/80 hover:bg-rose-100 text-rose-800 font-bold px-3 py-2 rounded-full flex items-center gap-1 transition">
+                                            ✍️ 快速開啟隨堂筆記
+                                        </button>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                const card = document.createElement('div');
+                card.id = `card-${item.id}`;
+                card.className = `relative transition-all duration-300`;
+                card.innerHTML = innerContent;
+                container.appendChild(card);
+            });
+        }
+
+        // 動態判定當前正在進行的項目
+        function updateCurrentSession() {
+            let now = new Date();
+            if (isSimulated) {
+                now.setMinutes(now.getMinutes() + simMinutesOffset);
+            }
+
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            document.getElementById('current-time-display').innerText = `${timeString}${isSimulated ? ' (模擬中)' : ''}`;
+
+            let activeIndex = -1;
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+            for (let i = 0; i < schedule.length; i++) {
+                const startParts = schedule[i].start.split(':');
+                const endParts = schedule[i].end.split(':');
+                const startMin = parseInt(startParts[0]) * 60 + parseInt(startParts[1]);
+                const endMin = parseInt(endParts[0]) * 60 + parseInt(endParts[1]);
+
+                if (currentMinutes >= startMin && currentMinutes < endMin) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            if (activeIndex === -1) {
+                const firstStart = parseInt(schedule[0].start.split(':')[0]) * 60 + parseInt(schedule[0].start.split(':')[1]);
+                const lastEnd = parseInt(schedule[schedule.length - 1].end.split(':')[0]) * 60 + parseInt(schedule[schedule.length - 1].end.split(':')[1]);
+                
+                if (currentMinutes < firstStart) {
+                    activeIndex = 0;
+                } else if (currentMinutes >= lastEnd) {
+                    activeIndex = schedule.length - 1;
+                }
+            }
+
+            schedule.forEach((item, index) => {
+                const card = document.getElementById(`card-${item.id}`);
+                if (!card) return;
+
+                const existingInd = card.querySelector('.active-indicator');
+                if (existingInd) existingInd.remove();
+
+                const innerCard = card.querySelector('div:nth-child(2)');
+                if (!innerCard) return; 
+
+                if (index === activeIndex) {
+                    innerCard.className = innerCard.className.replace(/border-slate-100|border-rose-100\/60/g, 'border-rose-600 ring-4 ring-rose-100/60');
+                    card.querySelector('.absolute').className = "absolute -left-[22px] top-2 w-4.5 h-4.5 rounded-full bg-rose-600 border-4 border-rose-100 animate-pulse shadow";
+                    
+                    const indicator = document.createElement('div');
+                    indicator.className = 'active-indicator absolute top-3 right-3 bg-gradient-to-r from-rose-600 to-rose-700 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full animate-pulse tracking-wider';
+                    indicator.innerText = '進行中';
+                    innerCard.appendChild(indicator);
+
+                    document.getElementById('live-session-title').innerText = item.title;
+                    document.getElementById('live-session-time').innerText = `${item.start} - ${item.end}`;
+                    
+                    let iconSvg = '';
+                    if (item.type === 'video') {
+                        iconSvg = `<svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>`;
+                    } else if (item.type === 'discussion') {
+                        iconSvg = `<svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>`;
+                    } else if (item.type === 'lunch') {
+                        iconSvg = `<svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                    } else {
+                        iconSvg = `<svg class="w-7 h-7 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>`;
+                    }
+                    document.getElementById('live-icon').innerHTML = iconSvg;
+
+                } else {
+                    if (item.type === 'discussion') {
+                        innerCard.className = "p-4 bg-white rounded-2xl shadow-xs border border-rose-100/60 hover:shadow-md transition";
+                        card.querySelector('.absolute').className = "absolute -left-[19px] top-1.5 w-3 h-3 rounded-full bg-rose-500 border-2 border-white shadow-xs";
+                    } else {
+                        innerCard.className = "p-4 bg-white rounded-2xl shadow-xs border border-slate-100 hover:shadow-md transition flex gap-3";
+                        card.querySelector('.absolute').className = "absolute -left-[19px] top-1.5 w-3 h-3 rounded-full bg-slate-400 border-2 border-white shadow-xs";
+                    }
+                }
+            });
+        }
+
+        // 模擬時間機制控制
+        function toggleSimulation() {
+            isSimulated = !isSimulated;
+            const btn = document.getElementById('sim-btn');
+            
+            if (isSimulated) {
+                btn.innerText = '停止時間模擬';
+                btn.className = 'text-sm text-white bg-slate-900 font-bold px-4 py-2 rounded-full transition active:scale-95 shadow-xs';
+                
+                const now = new Date();
+                const targetTime = new Date();
+                targetTime.setHours(8, 58, 0); 
+                
+                simMinutesOffset = Math.round((targetTime - now) / 60000);
+                
+                simInterval = setInterval(() => {
+                    simMinutesOffset += 5;
+                    updateCurrentSession();
+                    updateCountdownCard();
+                }, 2500);
+                
+                showModal('💡 時間模擬啟動', '已將時間定位到 08:58。系統隨後每 2.5 秒將會快進 5 分鐘，您可以觀察隨著時間推移，右下角只要有寫字，就會自動浮現黃色發光的「備份提醒」按鈕喔！', 'info');
+            } else {
+                btn.innerText = '模擬活動時間';
+                btn.className = 'text-sm text-rose-800 bg-rose-100 hover:bg-rose-200 font-bold px-4 py-2 rounded-full transition active:scale-95 shadow-xs';
+                clearInterval(simInterval);
+                simMinutesOffset = 0;
+                showModal('已還原真實時間', '手冊系統已重新恢復使用您手機設備的真實時鐘。', 'success');
+            }
+            updateCurrentSession();
+            updateCountdownCard();
+        }
+
+        // 快速切換到指定影片的隨堂筆記
+        function quickGoToNote(key) {
+            const selector = document.getElementById('note-selector');
+            selector.value = key;
+            switchNoteCategory();
+            selector.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 切換筆記目錄與內容載入
+        function switchNoteCategory() {
+            const currentCat = document.getElementById('note-selector').value;
+            const textarea = document.getElementById('note-textarea');
+            
+            textarea.value = localNotes[currentCat] || "";
+            updateCharCount();
+            
+            const saveStatusLabel = document.getElementById('save-status');
+            if (textarea.value.length > 0) {
+                saveStatusLabel.innerText = '✓ 本單元已有本機存檔';
+                saveStatusLabel.className = 'font-bold text-emerald-600';
+            } else {
+                saveStatusLabel.innerText = '✓ 本單元尚無紀錄，開始打字吧！';
+                saveStatusLabel.className = 'font-medium text-slate-400';
+            }
+        }
+
+        // 自動儲存筆記
+        function saveCurrentNote() {
+            const currentCat = document.getElementById('note-selector').value;
+            const text = document.getElementById('note-textarea').value;
+            
+            localNotes[currentCat] = text;
+            localStorage.setItem('marriage_art_notes_v2', JSON.stringify(localNotes));
+            
+            const saveStatusLabel = document.getElementById('save-status');
+            saveStatusLabel.innerText = '⚡ 已為您自動儲存';
+            saveStatusLabel.className = 'font-bold text-amber-600';
+            
+            updateCharCount();
+            checkNotesWordCount(); // 即時確認打字長度，判斷是否浮現懸浮提醒
+        }
+
+        // 更新字數
+        function updateCharCount() {
+            const text = document.getElementById('note-textarea').value;
+            document.getElementById('char-count').innerText = `${text.length} 字`;
+        }
+
+        // 打包與匯出筆記檔案 (.txt)
+        function exportNotes() {
+            let fileContent = `2026 宏恩牧區團隊建造 - 婚姻的藝術 學習筆記\n`;
+            fileContent += `舉辦日期：2026年6月13日\n`;
+            fileContent += `帶領同工：宏恩 & 小葳\n`;
+            fileContent += `==============================================\n\n`;
+
+            const catNames = {
+                intro: "開場與綜合心得筆記",
+                video1: "影片 1：愛之迸發（上帝的目的與計畫）",
+                video2: "影片 2：愛之褪色（克服孤立）",
+                video3: "影片 3：愛之中斷（溝通與衝突）",
+                video4: "影片 4：愛之舞動（善盡我們的責任）",
+                dance: "舞動人生心得與未來願景"
+            };
+
+            let totalWords = 0;
+            for (let key in localNotes) {
+                const noteText = localNotes[key] ? localNotes[key].trim() : "(無記錄)";
+                fileContent += `【${catNames[key]}】\n`;
+                fileContent += `${noteText}\n`;
+                fileContent += `----------------------------------------------\n\n`;
+                totalWords += noteText === "(無記錄)" ? 0 : noteText.length;
+            }
+
+            if (totalWords === 0) {
+                showModal('提示', '您目前還沒有寫下任何筆記內容唷！快在各個單元寫一些心得與得著吧。', 'info');
+                return;
+            }
+
+            const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '20260613宏恩牧區-婚姻的藝術隨堂筆記.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showModal('筆記匯出成功', '您的學習隨筆與討論紀錄檔案 (.txt) 已成功下載！歡迎分享給您的另一半、小組同工與牧長。', 'success');
+        }
+
+        // 抽取午間挑戰任務
+        function getNewChallenge() {
+            const box = document.getElementById('challenge-box');
+            
+            box.innerHTML = `
+                <div class="flex space-x-1.5 justify-center items-center h-16">
+                    <div class="h-3.5 w-3.5 bg-champagne-300 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                    <div class="h-3.5 w-3.5 bg-champagne-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    <div class="h-3.5 w-3.5 bg-champagne-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                </div>
+            `;
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * challenges.length);
+                const item = challenges[randomIndex];
+                
+                box.innerHTML = `
+                    <p class="text-base font-black text-champagne-300 animate-pulse" id="challenge-title">✨ ${item.title} ✨</p>
+                    <p class="text-sm text-white mt-2 leading-relaxed" id="challenge-desc">${item.desc}</p>
+                `;
+            }, 800);
+        }
+
+        // 自訂 Modal 提示
+        function showModal(title, msg, type = 'success') {
+            const modal = document.getElementById('custom-modal');
+            const mTitle = document.getElementById('modal-title');
+            const mMsg = document.getElementById('modal-message');
+            const mIcon = document.getElementById('modal-icon');
+
+            mTitle.innerText = title;
+            mMsg.innerText = msg;
+
+            if (type === 'success') {
+                mIcon.className = "w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-100";
+                mIcon.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+            } else if (type === 'info') {
+                mIcon.className = "w-14 h-14 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mx-auto border border-rose-100";
+                mIcon.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
+```
